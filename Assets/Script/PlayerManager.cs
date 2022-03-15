@@ -4,38 +4,33 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+   
     //インスペクターから指定
-    [SerializeField] Animator animator;
-
-    void Start()
-    {
-        //animatorコンポーネントの取得
-        animator = GetComponent<Animator>();
-    }
+    [SerializeField] Animator anim;
 
     
+    private void Start()
+    {
+        //同じオブジェクトについているコンポーネントを取得
+        anim = GetComponent<Animator>();
+    }
+
+
     void FixedUpdate()
     {
-        //左矢印キーが押されたとき
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        //左矢印キーを押されたら
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            //アニメーターのBool"Running"の発動
-            animator.SetBool("Running", true);
+            anim.SetFloat("MoveSpeed", 3.2f);
+            Debug.Log("trueeeeeeee");
         }
         else
         {
-            animator.SetBool("Running", false);
+            //anim.SetFloat("MoveSpeed", 0.0f);
+            //anim.SetTrigger("Stop");
+            Debug.Log("falseeeeee");
         }
-
-        //右矢印キーが押されたとき
-        /*if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            //アニメーターのBool"Walking"の発動
-            animator.SetBool("Walking",true);
-        }
-        else
-        {
-            animator.SetBool("Running", false);
-        }*/
+              
     }
+
 }
