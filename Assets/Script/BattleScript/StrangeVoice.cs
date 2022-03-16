@@ -47,5 +47,26 @@ public class StrangeVoice : MonoBehaviour
                 slider.value += 0.1f;
             }
         }
+    
+            /*
+            // イベントに登録
+            SceneManager.sceneLoaded += GameSceneLoaded;
+            */
+
+            // シーン切り替え
+/*
+            private void GameSceneLoaded(Scene next, LoadSceneMode mode)
+            {
+                // シーン切り替え後のスクリプトを取得
+                var gameManager= GameObject.FindWithTag("GameManager").GetComponent<GameManagerScript>();
+     
+                // データを渡す処理
+                gameManager.score = 100;
+
+                // イベントから削除
+                 SceneManager.sceneLoaded -= GameSceneLoaded;
+            }
+        }
+        */
     }
 }

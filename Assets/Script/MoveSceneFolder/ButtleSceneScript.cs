@@ -19,12 +19,22 @@ public class ButtleSceneScript : MonoBehaviour
     // ゲームオブジェクト同士が接触したタイミングで実行
 public void OnCollisionEnter(Collision collision)
 {
-        if (collision.gameObject.name == "Zombie leg v2") 
+        if (collision.gameObject.CompareTag("enemy")) 
         {
             Debug.Log("aaa");
             // battlesceneへ移行
+
+
+            /*            collision.gameObject.GetComponent<EnemyDeleteScript>().setDeath(true);*/
+
+            GameObject.Destroy(collision.gameObject);
+
             SceneManager.LoadScene("BattleScene");
-        }   
-}
+
+
+
+
+        }
+    }
 
 }

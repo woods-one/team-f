@@ -7,25 +7,30 @@ using UnityEngine.SceneManagement;
 public class ShowGameClearText : MonoBehaviour
 {
 
-    //Inspector‚ÅƒLƒƒƒ‰ƒNƒ^[‚ÆƒS[ƒ‹ƒIƒuƒWƒFƒNƒg‚Ìw’è‚ª‚Å‚«‚é‚æ‚¤‚É‚·‚é
+    //Inspectorï¿½ÅƒLï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½ÆƒSï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìwï¿½è‚ªï¿½Å‚ï¿½ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
     [SerializeField] GameObject chara;
     [SerializeField] GameObject gameclear;
 
     private void Start()
     {
         Time.timeScale = 1;
+
+        chara = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //‚à‚µƒS[ƒ‹ƒIƒuƒWƒFƒNƒg‚ÌƒRƒ‰ƒCƒ_[‚ÉÚG‚µ‚½‚Æ‚«‚Ìˆ—
-        if(other.name == chara.name)
-        {
-            //ƒQ[ƒ€ƒNƒŠƒAƒeƒLƒXƒg‚ğ•\¦‚³‚¹‚ÄƒLƒƒƒ‰ƒNƒ^[‚ğ”ñ•\¦‚É‚·‚é
-            gameclear.GetComponent<Text>();
-            gameclear.SetActive(true);
-            chara.SetActive(false);
-            Time.timeScale = 0;
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Sï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ÌƒRï¿½ï¿½ï¿½Cï¿½_ï¿½[ï¿½ÉÚGï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ìï¿½ï¿½ï¿½
+        if(other.CompareTag("Player")){
+            if(other.name == chara.name)
+            {
+                //ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½eï¿½Lï¿½Xï¿½gï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÄƒLï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
+                gameclear.GetComponent<Text>();
+                gameclear.SetActive(true);
+                chara.SetActive(false);
+                Time.timeScale = 0;
+            };
         }
+
     }
 }

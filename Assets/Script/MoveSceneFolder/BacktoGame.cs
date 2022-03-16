@@ -19,6 +19,9 @@ public class BacktoGame : MonoBehaviour
     }
     public void PushBack()
 	{
-		SceneManager.LoadScene ("GameScene");
-	}	
+
+
+        SceneManager.LoadScene ("GameScene");
+
+    }	
 }

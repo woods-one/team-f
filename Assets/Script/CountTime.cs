@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class CountTime : MonoBehaviour
 {
-    //public bool isClear = false; //ゴール判定のフラグ
-
     //時間を表示するためのUI属性のTextを入れる箱
     public UnityEngine.UI.Text TimeText; 
 
@@ -14,14 +12,19 @@ public class CountTime : MonoBehaviour
 
     void Start()
     {
-        countTime = 0;
+        countTime = CountTime2.getCountTime2();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         countTime += Time.deltaTime; //時間を増やす
         TimeText.text = countTime.ToString("F2"); //小数点2桁で時間をテキストに変換
 
+    }
+
+    public static float getCountTime()
+    {
+        return countTime;
     }
 
 }
